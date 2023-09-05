@@ -20,7 +20,7 @@ body {
 	justify-content: center;
 }
 
-.card-task-list {
+.card-to-do {
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 	padding: 25px;
 	border-radius: 20px;
@@ -31,17 +31,17 @@ h1 {
 	text-align: center;
 }
 
-.counter-task-list {
+.counter-todos {
 	margin: 40px 0;
 	display: flex;
 	justify-content: space-around;
 }
 
-.counter-task-list h3 {
+.counter-todos h3 {
 	font-weight: 500;
 }
 
-.counter-task-list span {
+.counter-todos span {
 	color: #f29559;
 	font-weight: 700;
 	font-size: 24px;
@@ -145,7 +145,7 @@ form {
 	gap: 20px;
 }
 
-.add-task-list h2 {
+.add-todo h3 {
 	text-align: center;
 	margin-bottom: 40px;
 	font-size: 24px;

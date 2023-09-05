@@ -1,50 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { TaskListAdd } from './components/TaskListAdd'
-import { TaskList } from './components/TaskList'
-import { useTaskList } from './hooks/useTaskList'
+import { useState } from 'react';
+import './App.css';
+import { TodoAdd } from './components/TodoAdd';
+import { TodoList } from './components/TodoList';
+import { useTodo } from './hooks/useTodo';
 
 function App() {
-  //const [count, setCount] = useState(0)
-  const {
-        tasklists,
-        taskListsCount,
-        pendingTaskListsCount,
-        handleNewTaskList,
-        handleDeleteTaskList,
-        handleCompleteTaskList,
-        handleUpdateTaskList,
-  } = useTaskList()
+	const {
+		todos,
+		todosCount,
+		pendingTodosCount,
+		handleNewTodo,
+		handleDeleteTodo,
+		handleCompleteTodo,
+		handleUpdateTodo,
+	} = useTodo();
 
-  return (
-    <>
+	return (
+		<>
+			<div className='card-to-do'>
+				<h1>Lista de tareas</h1>
+				<div className='counter-todos'>
+					<h3>
+						N° Tareas: <span>{todosCount}</span>
+					</h3>
+					<h3>
+						Pendientes: <span>{pendingTodosCount}</span>
+					</h3>
+				</div>
 
-      <div className="card-task-list">
-        <h1>Lista de Tareas</h1>
-        <div className="counter-task-list">
-          <h2>
-            N° Tareas: <span>{taskListsCount}</span>
-          </h2>
-          <h2>
-            Tareas Pendientes: <span>{pendingTaskListsCount}</span>
-          </h2>
-        </div>
-          <h2>Agregar Tarea</h2>
-          <TaskListAdd handleNewTaskList={handleNewTaskList}/>
-        <div className="add-task-list">
+				<div className='add-todo'>
+					<h3>Agregar Tarea</h3>
+					<TodoAdd handleNewTodo={handleNewTodo} />
+				</div>
 
-        </div>
-        <TaskList
-          tasklists={tasklists}
-          handleUpdateTaskList={handleUpdateTaskList}
-          handleDeleteTaskList={handleDeleteTaskList}
-          handleCompleteTaskList={handleCompleteTaskList}
-        />
-      </div>
-    </>
-  )
+				<TodoList
+					todos={todos}
+					handleUpdateTodo={handleUpdateTodo}
+					handleDeleteTodo={handleDeleteTodo}
+					handleCompleteTodo={handleCompleteTodo}
+				/>
+			</div>
+		</>
+	);
 }
 
-export default App
+export default App;
